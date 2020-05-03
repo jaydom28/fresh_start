@@ -1,0 +1,33 @@
+#!/bin/sh
+# This script is to set up ubuntu or mint on a fresh install with
+# all of my programs. Use the following command on the script so you don't
+# need to enter in your password.
+# chmod +s debian_install_script
+
+# update repositories
+# sudo apt-get update -y
+
+# install all my packages that I typically start with
+printf "Now installing packages...\n"
+sudo apt-get install -y $(cat packages.txt)
+
+
+exit 0
+
+### SET UP VIM RELATED THINGS ###
+printf "Setting up vim and plugins...\n"
+# install vim
+sudo apt-get install vim -y
+# install vim plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# need to move .vimrc into the correct spot
+# open .vimrc and run PlugInstall
+
+### MOVE FILES INTO THE CORRECT DIRECTORIES ###
+# move stardict dictionaries into the right place
+
+
+sudo apt-get upgrade -y
+
+

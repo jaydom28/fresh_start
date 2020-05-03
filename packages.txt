@@ -1,0 +1,10 @@
+firefox
+mupdf
+ocaml
+opam
+pv
+python3
+texlive
+youtube-dl
+sdcv
+build-essential
