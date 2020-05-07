@@ -2,6 +2,7 @@ build-essential
 firefox
 mupdf
 ocaml
+utop
 opam
 pv
 python3

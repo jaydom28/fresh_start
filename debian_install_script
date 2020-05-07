@@ -8,7 +8,7 @@ CONFIG_DIRECTORY='./config_files'
 PACKAGES_FILE='./packages.txt'
 
 # update repositories
-sudo apt-get update -y
+sudo apt-get update -y && sudo apt-get upgrade -y
 
 # install all my packages that I typically start with using a text file that 
 # contains the names of all the packages I want to install
@@ -27,6 +27,7 @@ vim "$HOME/.vimrc" -c "PlugInstall"
 # move stardict dictionaries into the right place
 
 
-sudo apt-get upgrade -y
+
+
 
 
