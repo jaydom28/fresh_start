@@ -4,25 +4,24 @@
 # need to enter in your password.
 # chmod +s debian_install_script
 
+CONFIG_DIRECTORY='./config_files'
+PACKAGES_FILE='./packages.txt'
+
 # update repositories
-# sudo apt-get update -y
+sudo apt-get update -y
 
-# install all my packages that I typically start with
-printf "Now installing packages...\n"
-sudo apt-get install -y $(cat packages.txt)
-
-
-exit 0
+# install all my packages that I typically start with using a text file that 
+# contains the names of all the packages I want to install
+[ -f "$PACKAGES_FILE" ] && sudo apt-get install -y $(cat "$PACKAGES_FILE")
 
 ### SET UP VIM RELATED THINGS ###
-printf "Setting up vim and plugins...\n"
-# install vim
-sudo apt-get install vim -y
 # install vim plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 # need to move .vimrc into the correct spot
+cp "$CONFIG_DIRECTORY/.vimrc" "$HOME/"
 # open .vimrc and run PlugInstall
+vim "$HOME/.vimrc" -c "PlugInstall"
 
 ### MOVE FILES INTO THE CORRECT DIRECTORIES ###
 # move stardict dictionaries into the right place
